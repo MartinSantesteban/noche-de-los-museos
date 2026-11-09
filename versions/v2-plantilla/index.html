@@ -74,7 +74,7 @@ a { color: inherit; }
 .toc { position: sticky; top: 0; z-index: 10; background: rgba(248,241,229,.92); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
 .toc ol { list-style: none; margin: 0; padding: 10px 16px; display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
 .toc ol::-webkit-scrollbar { display: none; }
-.toc a { display: block; white-space: nowrap; text-decoration: none; padding: 6px 14px; border-radius: 999px; font-size: 1rem; border: 1px solid transparent; }
+.toc a { display: block; white-space: nowrap; text-decoration: none; padding: 10px 14px; border-radius: 999px; font-size: 1rem; border: 1px solid transparent; }
 .toc a.on { border-color: var(--ink); }
 .toc a span { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: middle; background: var(--dot); }
 
@@ -252,7 +252,7 @@ if ("IntersectionObserver" in window) {
     links.forEach(a => {
       const on = a.hash === "#" + e.target.id;
       a.classList.toggle("on", on);
-      if (on) a.scrollIntoView({ inline: "center", block: "nearest" });
+      if (on) toc.scrollTo({ left: a.parentElement.offsetLeft - (toc.clientWidth - a.parentElement.offsetWidth) / 2, behavior: "smooth" });
     });
   }), { rootMargin: "-45% 0px -50% 0px" });
   document.querySelectorAll(".mesa").forEach(s => spy.observe(s));
