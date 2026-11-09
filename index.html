@@ -43,14 +43,14 @@ a { color: inherit; }
   color: #fff8ea;
   text-align: center;
   padding: 0 16px 56px;
-  background: var(--night) url("img/20261105_133926.jpg") center 30% / cover no-repeat;
+  background: var(--night) url("img/hero.jpg") center top / 100% auto no-repeat;
   isolation: isolate;
 }
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(42,29,18,.15) 0%, rgba(42,29,18,.35) 45%, rgba(42,29,18,.92) 82%);
+  background: linear-gradient(180deg, rgba(42,29,18,0) 0, rgba(42,29,18,.1) calc(108vw * .5), var(--night) 108vw);
   z-index: -1;
 }
 .hero .presenta { font-family: "Dancing Script", cursive; font-size: 1.5rem; color: var(--gold-soft); margin: 0; }
