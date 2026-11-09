@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alquimia de los encajes</title>
+<style>
+body { margin: 0; font-family: Georgia, serif; color: #3b2a1a; background: #fbf7f0; line-height: 1.5; }
+main { max-width: 640px; margin: 0 auto; padding: 0 16px 40px; }
+img { width: 100%; height: auto; display: block; }
+h1 { text-align: center; font-size: 2rem; margin: 24px 0 16px; }
+h2 { margin: 28px 0 8px; }
+.datos { background: #6b4a2e; color: #fbf3e4; padding: 16px; margin: 16px 0; }
+.datos p { margin: 4px 0; }
+.datos a { color: #fbf3e4; }
+.intro p { margin: 0 0 1em; }
+.foto { margin: 0 0 24px; }
+.foto ol { margin: 8px 0 0; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Alquimia de los encajes</h1>
+
+  <img src="img/cartel.jpg" alt="Cartel: Inés Fernández presenta Alquimia de los encajes. Sábado 14/11/2026 desde las 20 hs. Museo de la Emigración Gallega en Argentina, Chacabuco 955, San Telmo, CABA." width="900" height="1273">
+
+  <section class="datos">
+    <p><strong>Inés Fernández</strong></p>
+    <p>Celular: <a href="tel:+5491167218304">11 6721-8304</a> · <a href="https://wa.me/5491167218304">WhatsApp</a></p>
+    <p>Dirección: <a href="https://maps.google.com/?q=Chacabuco+955,+San+Telmo,+CABA">Chacabuco 955, San Telmo, CABA</a> (MEGA)</p>
+    <p>Instagram: <a href="#">@PENDIENTE</a></p>
+    <p>Facebook: <a href="#">PENDIENTE</a></p>
+  </section>
+
+  <section class="intro">
+    <h2>Alquimia del encaje</h2>
+    <p>Desde la noche de los tiempos, ellas protegen el secreto…<br>El fuego creador todo lo transforma, en su constante devenir, separa la tierra de las aguas, transmuta en aire para elevarse y alcanzar su máximo esplendor…</p>
+    <p>A través de las manos, el tiempo y la tradición, el encaje de bolillos transforma la delicadeza del lino, la pureza del algodón y el brillo de los hilos en auténticas piezas de joyería… esculturas que abrazan el cuerpo.</p>
+  </section>
+
+  <div id="mesas"></div>
+</main>
+
+<script>
+const MESAS = [
+  { name: "Oscuridad", photos: ["130412", "130419", "130427", "130432"],
+    items: ["Collar “Ecléctico”, cristales y perlas.", "Broche “Hojas”, con cristales.", "Dije “Clave de sol”, hilo metalizado.", "Aros en hilo de bordar metalizado.", "Pulsera confeccionada en hilo de algodón.", "Medalla “Negra”, técnica Idrija.", "Choker con canutillos.", "Medallón circular en hilo metalizado.", "Esfera Temari con encaje de bolillos."] },
+  { name: "Fuego", photos: ["132903", "132908"],
+    items: ["Collar técnica Lutac.", "Prendedor “Moño” con mostacillas checas.", "Prendedor flor con cristales.", "Prendedor chico con perla.", "Pulsera de hilo egipcio rojo, mostacillas negras y broche labrado.", "Esferas dorada y roja realizadas en encaje de bolillos.", "Conjunto de collar y aros con semillas de huayruro y mostacillas."] },
+  { name: "Tierra", photos: ["132917", "132921", "132927"],
+    items: ["Collar/pulsera con esfera.", "Broche flor “Crisálida”.", "Lazo de gasa con flor.", "Collar de encaje de lino y cordón de cuero.", "Pin solapero con estrella.", "Pulsera de hilos de algodón.", "Esfera de encaje de bolillos con mostacillas checas."] },
+  { name: "Agua", photos: ["130440", "130444", "130449", "130454", "130459"],
+    items: ["Collar técnica Lutac y “Corazón de perla”.", "Broche “Alitas”.", "Broche “Caracoles”.", "Collar “Anémona de cristal”.", "Collar y pulsera “Posidonia”, hilo mouliné y canutillos checos.", "Collar flotante, pulsera y aros con guipures, haciendo juego."] },
+  { name: "Aire", photos: ["130506", "130511", "130516", "130520", "130524", "130531"],
+    items: ["Collar diseño ruso.", "Gargantilla con hojas y perlas.", "Flor / horquilla.", "Pulsera con puntilla en hilo de algodón.", "Choker con perlas."] },
+  { name: "Luz", photos: ["133921", "133926", "133931", "133937", "133941"],
+    items: ["Collar de lino con guipures.", "“Extremo”, collar en seda e hilo metalizado.", "Gargantilla “Hojas” en hilo metalizado.", "Broche con técnica mixta."] }
+];
+
+const root = document.getElementById("mesas");
+for (const m of MESAS) {
+  const photos = m.photos.map((p, i) =>
+    `<div class="foto"><img loading="lazy" src="img/20261105_${p}.jpg" alt="${m.name}, foto ${i + 1}"></div>`).join("");
+  const items = m.items.map(t => `<li>${t}</li>`).join("");
+  root.insertAdjacentHTML("beforeend", `<section><h2>${m.name}</h2><ol>${items}</ol>${photos}</section>`);
+}
+</script>
+</body>
+</html>
