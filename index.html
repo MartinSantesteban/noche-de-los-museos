@@ -4,65 +4,289 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Alquimia de los encajes</title>
+<meta name="description" content="Exhibición y desfile de joyería textil en encaje de bolillos. Inés Fernández. MEGA, 14/11/2026.">
+<meta name="theme-color" content="#2a1d12">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
 <style>
-body { margin: 0; font-family: Georgia, serif; color: #3b2a1a; background: #fbf7f0; line-height: 1.5; }
-main { max-width: 640px; margin: 0 auto; padding: 0 16px 40px; }
-img { width: 100%; height: auto; display: block; }
-h1 { text-align: center; font-size: 2rem; margin: 24px 0 16px; }
-h2 { margin: 28px 0 8px; }
-.datos { background: #6b4a2e; color: #fbf3e4; padding: 16px; margin: 16px 0; }
-.datos p { margin: 4px 0; }
-.datos a { color: #fbf3e4; }
-.intro p { margin: 0 0 1em; }
-.foto { margin: 0 0 24px; }
-.foto ol { margin: 8px 0 0; }
+:root {
+  --paper: #f8f1e5;
+  --ink: #2f2216;
+  --muted: #7b6550;
+  --gold: #b88a3e;
+  --gold-soft: #e3c992;
+  --night: #2a1d12;
+  --line: rgba(47, 34, 22, .14);
+  --accent: var(--gold);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.18rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+.script { font-family: "Dancing Script", cursive; }
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  place-items: end center;
+  color: #fff8ea;
+  text-align: center;
+  padding: 0 16px 56px;
+  background: var(--night) url("../../img/20261105_133926.jpg") center 30% / cover no-repeat;
+  isolation: isolate;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(42,29,18,.15) 0%, rgba(42,29,18,.35) 45%, rgba(42,29,18,.92) 82%);
+  z-index: -1;
+}
+.hero .presenta { font-family: "Dancing Script", cursive; font-size: 1.5rem; color: var(--gold-soft); margin: 0; }
+.hero h1 { font-family: "Dancing Script", cursive; font-weight: 700; font-size: clamp(3rem, 14vw, 5.2rem); line-height: 1; margin: 6px 0 12px; text-shadow: 0 2px 18px rgba(0,0,0,.45); }
+.hero .sub { font-style: italic; margin: 0 auto 22px; max-width: 26ch; opacity: .92; }
+.hero .when { display: inline-block; border-top: 1px solid var(--gold-soft); border-bottom: 1px solid var(--gold-soft); padding: 8px 18px; letter-spacing: .08em; text-transform: uppercase; font-size: .95rem; }
+.scroll-cue { display: block; margin-top: 28px; font-size: .85rem; letter-spacing: .2em; text-transform: uppercase; opacity: .7; text-decoration: none; }
+
+.card {
+  max-width: 560px;
+  margin: -32px auto 0;
+  position: relative;
+  background: #fffaf1;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 18px 40px -18px rgba(42,29,18,.35);
+  padding: 24px 20px;
+  text-align: center;
+}
+.card + .card { margin-top: 16px; }
+.card h2 { font-family: "Dancing Script", cursive; font-weight: 500; font-size: 1.9rem; margin: 0; color: var(--gold); line-height: 1.1; }
+.card .name { font-size: 1.5rem; font-weight: 600; margin: 2px 0 14px; }
+.card dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; text-align: left; margin: 0 0 18px; }
+.card dt { color: var(--muted); font-size: .95rem; }
+.card dd { margin: 0; }
+.btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 10px; border-radius: 999px; text-decoration: none; font-family: system-ui, sans-serif; font-size: .95rem; font-weight: 600; border: 1px solid var(--ink); }
+.btn.primary { background: var(--ink); color: #fff8ea; }
+.btn svg { width: 18px; height: 18px; fill: currentColor; }
+.btns .wide { grid-column: 1 / -1; }
+
+.intro { max-width: 620px; margin: 0 auto; padding: 56px 20px 24px; text-align: center; }
+.ornament { color: var(--gold); letter-spacing: .6em; font-size: .9rem; margin: 0 0 12px; }
+.intro .verse { font-family: "Dancing Script", cursive; font-size: 1.55rem; line-height: 1.45; color: var(--ink); margin: 0 0 24px; }
+.intro .verse span { display: block; }
+.intro p.prose { font-size: 1.2rem; color: var(--muted); font-style: italic; margin: 0; }
+
+.toc { position: sticky; top: 0; z-index: 10; background: rgba(248,241,229,.92); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.toc ol { list-style: none; margin: 0; padding: 10px 16px; display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+.toc ol::-webkit-scrollbar { display: none; }
+.toc a { display: block; white-space: nowrap; text-decoration: none; padding: 6px 14px; border-radius: 999px; font-size: 1rem; border: 1px solid transparent; }
+.toc a.on { border-color: var(--ink); }
+.toc a span { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: middle; background: var(--dot); }
+
+.mesa { padding: 56px 0 48px; background: var(--bg, transparent); color: var(--fg, var(--ink)); }
+.mesa .head { max-width: 620px; margin: 0 auto; padding: 0 20px; text-align: center; }
+.mesa .num { font-size: .85rem; letter-spacing: .3em; text-transform: uppercase; color: var(--accent); margin: 0; }
+.mesa h3 { font-size: clamp(2.4rem, 11vw, 3.4rem); font-weight: 500; letter-spacing: .06em; margin: 0; line-height: 1.1; }
+.mesa .quote { font-family: "Dancing Script", cursive; font-size: 1.4rem; color: var(--accent); margin: 6px 0 24px; }
+.strip { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 20px 12px; scrollbar-width: none; }
+.strip::-webkit-scrollbar { display: none; }
+.strip button { flex: 0 0 80%; max-width: 440px; scroll-snap-align: center; padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: 10px; overflow: hidden; box-shadow: 0 12px 28px -14px rgba(0,0,0,.5); }
+.strip img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; transition: transform .4s ease; }
+.strip button:hover img { transform: scale(1.03); }
+.dots { display: flex; justify-content: center; gap: 6px; margin: 4px 0 20px; }
+.dots i { width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: .25; transition: opacity .2s; }
+.dots i.on { opacity: .9; }
+.pieces { max-width: 620px; margin: 0 auto; padding: 0 20px; list-style: none; counter-reset: p; }
+.pieces li { counter-increment: p; display: grid; grid-template-columns: 2.2em 1fr; padding: 10px 0; border-bottom: 1px solid color-mix(in srgb, currentColor 15%, transparent); }
+.pieces li:last-child { border-bottom: 0; }
+.pieces li::before { content: counter(p, decimal-leading-zero); color: var(--accent); font-variant-numeric: tabular-nums; font-size: .95rem; padding-top: 2px; }
+
+.m-oscuridad { --bg: #1d1712; --fg: #efe6d6; --accent: #c9a96a; --dot: #1d1712; }
+.m-fuego { --bg: #f6e6df; --accent: #a3262a; --dot: #a3262a; }
+.m-tierra { --bg: #f3e7d3; --accent: #b0602a; --dot: #b0602a; }
+.m-agua { --bg: #e3eeee; --accent: #2f6f78; --dot: #2f6f78; }
+.m-aire { --bg: #fbfaf7; --accent: #8a93a0; --dot: #c3c9d1; }
+.m-luz { --bg: #f7eccf; --accent: #9a7428; --dot: #d4ab4f; }
+
+footer { background: var(--night); color: #efe6d6; text-align: center; padding: 48px 20px 56px; }
+footer .card { margin: 0 auto 28px; color: var(--ink); }
+footer small { opacity: .65; letter-spacing: .08em; }
+
+dialog { border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh; width: 100vw; height: 100vh; }
+dialog[open] { display: grid; place-items: center; }
+dialog::backdrop { background: rgba(14,10,6,.94); }
+dialog img { max-width: 96vw; max-height: 88vh; border-radius: 6px; }
+.close { position: fixed; top: 12px; right: 14px; background: none; border: 0; color: #fff; font-size: 2.4rem; line-height: 1; cursor: pointer; }
+
+.anim .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+.anim .reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .anim .reveal { opacity: 1; transform: none; transition: none; }
+}
 </style>
 </head>
 <body>
-<main>
-  <h1>Alquimia de los encajes</h1>
 
-  <img src="img/cartel.jpg" alt="Cartel: Inés Fernández presenta Alquimia de los encajes. Sábado 14/11/2026 desde las 20 hs. Museo de la Emigración Gallega en Argentina, Chacabuco 955, San Telmo, CABA." width="900" height="1273">
+<header class="hero">
+  <div>
+    <p class="presenta">Inés Fernández presenta</p>
+    <h1>Alquimia de los encajes</h1>
+    <p class="sub">Exhibición y desfile de joyería textil realizada en encaje de bolillos</p>
+    <div class="when">Sábado 14 · 11 · 2026 — 20 hs</div>
+    <a class="scroll-cue" href="#contacto">Descubrir ↓</a>
+  </div>
+</header>
 
-  <section class="datos">
-    <p><strong>Inés Fernández</strong></p>
-    <p>Celular: <a href="tel:+5491167218304">11 6721-8304</a> · <a href="https://wa.me/5491167218304">WhatsApp</a></p>
-    <p>Dirección: <a href="https://maps.google.com/?q=Chacabuco+955,+San+Telmo,+CABA">Chacabuco 955, San Telmo, CABA</a> (MEGA)</p>
-    <p>Instagram: <a href="#">@PENDIENTE</a></p>
-    <p>Facebook: <a href="#">PENDIENTE</a></p>
+<section class="card" id="contacto">
+  <h2>Contacto</h2>
+  <p class="name">Inés Fernández</p>
+  <dl>
+    <dt>Celular</dt><dd>11 6721-8304</dd>
+    <dt>Lugar</dt><dd>Museo de la Emigración Gallega en Argentina (MEGA)</dd>
+    <dt>Dirección</dt><dd><a href="https://maps.google.com/?q=Chacabuco+955,+San+Telmo,+CABA">Chacabuco 955, San Telmo, CABA</a></dd>
+    <dt>Instagram</dt><dd><a href="#">@PENDIENTE</a></dd>
+    <dt>Facebook</dt><dd><a href="#">PENDIENTE</a></dd>
+  </dl>
+  <div class="btns">
+    <a class="btn primary" href="https://wa.me/5491167218304"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>WhatsApp</a>
+    <a class="btn" href="tel:+5491167218304"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg>Llamar</a>
+  </div>
+</section>
+
+<section class="intro reveal">
+  <p class="ornament">✦ ✦ ✦</p>
+  <p class="verse">
+    <span>Desde la noche de los tiempos, ellas protegen el secreto…</span>
+    <span>El fuego creador todo lo transforma,</span>
+    <span>en su constante devenir, separa la tierra de las aguas,</span>
+    <span>transmuta en aire para elevarse</span>
+    <span>y alcanzar su máximo esplendor…</span>
+  </p>
+  <p class="prose">A través de las manos, el tiempo y la tradición, el encaje de bolillos transforma la delicadeza del lino, la pureza del algodón y el brillo de los hilos en auténticas piezas de joyería… esculturas que abrazan el cuerpo.</p>
+</section>
+
+<nav class="toc" aria-label="Mesas"><ol id="toc"></ol></nav>
+<main id="mesas"></main>
+
+<footer>
+  <section class="card">
+    <h2>¿Te gustó alguna pieza?</h2>
+    <p class="name">Escribile a Inés</p>
+    <div class="btns">
+      <a class="btn primary wide" href="https://wa.me/5491167218304">WhatsApp · 11 6721-8304</a>
+    </div>
   </section>
+  <small>NOCHE DE LOS MUSEOS 2026 · MEGA · SAN TELMO</small>
+</footer>
 
-  <section class="intro">
-    <h2>Alquimia del encaje</h2>
-    <p>Desde la noche de los tiempos, ellas protegen el secreto…<br>El fuego creador todo lo transforma, en su constante devenir, separa la tierra de las aguas, transmuta en aire para elevarse y alcanzar su máximo esplendor…</p>
-    <p>A través de las manos, el tiempo y la tradición, el encaje de bolillos transforma la delicadeza del lino, la pureza del algodón y el brillo de los hilos en auténticas piezas de joyería… esculturas que abrazan el cuerpo.</p>
-  </section>
-
-  <div id="mesas"></div>
-</main>
+<dialog id="viewer">
+  <button class="close" aria-label="Cerrar">&times;</button>
+  <img id="viewer-img" alt="">
+</dialog>
 
 <script>
+const IMG = "../../img/20261105_";
 const MESAS = [
-  { name: "Oscuridad", photos: ["130412", "130419", "130427", "130432"],
+  { n: 1, name: "Oscuridad", quote: "…desde la noche de los tiempos ellas protegen el secreto…",
+    photos: ["130412", "130419", "130427", "130432"],
     items: ["Collar “Ecléctico”, cristales y perlas.", "Broche “Hojas”, con cristales.", "Dije “Clave de sol”, hilo metalizado.", "Aros en hilo de bordar metalizado.", "Pulsera confeccionada en hilo de algodón.", "Medalla “Negra”, técnica Idrija.", "Choker con canutillos.", "Medallón circular en hilo metalizado.", "Esfera Temari con encaje de bolillos."] },
-  { name: "Fuego", photos: ["132903", "132908"],
+  { n: 2, name: "Fuego", quote: "…el fuego creador todo lo transforma…",
+    photos: ["132903", "132908"],
     items: ["Collar técnica Lutac.", "Prendedor “Moño” con mostacillas checas.", "Prendedor flor con cristales.", "Prendedor chico con perla.", "Pulsera de hilo egipcio rojo, mostacillas negras y broche labrado.", "Esferas dorada y roja realizadas en encaje de bolillos.", "Conjunto de collar y aros con semillas de huayruro y mostacillas."] },
-  { name: "Tierra", photos: ["132917", "132921", "132927"],
+  { n: 3, name: "Tierra", quote: "…en su constante devenir, separa la tierra…",
+    photos: ["132917", "132921", "132927"],
     items: ["Collar/pulsera con esfera.", "Broche flor “Crisálida”.", "Lazo de gasa con flor.", "Collar de encaje de lino y cordón de cuero.", "Pin solapero con estrella.", "Pulsera de hilos de algodón.", "Esfera de encaje de bolillos con mostacillas checas."] },
-  { name: "Agua", photos: ["130440", "130444", "130449", "130454", "130459"],
+  { n: 4, name: "Agua", quote: "…de las aguas…",
+    photos: ["130440", "130444", "130449", "130454", "130459"],
     items: ["Collar técnica Lutac y “Corazón de perla”.", "Broche “Alitas”.", "Broche “Caracoles”.", "Collar “Anémona de cristal”.", "Collar y pulsera “Posidonia”, hilo mouliné y canutillos checos.", "Collar flotante, pulsera y aros con guipures, haciendo juego."] },
-  { name: "Aire", photos: ["130506", "130511", "130516", "130520", "130524", "130531"],
+  { n: 5, name: "Aire", quote: "…transmuta en aire para elevarse…",
+    photos: ["130506", "130511", "130516", "130520", "130524", "130531"],
     items: ["Collar diseño ruso.", "Gargantilla con hojas y perlas.", "Flor / horquilla.", "Pulsera con puntilla en hilo de algodón.", "Choker con perlas."] },
-  { name: "Luz", photos: ["133921", "133926", "133931", "133937", "133941"],
+  { n: 6, name: "Luz", quote: "…y alcanzar su máximo esplendor…",
+    photos: ["133921", "133926", "133931", "133937", "133941"],
     items: ["Collar de lino con guipures.", "“Extremo”, collar en seda e hilo metalizado.", "Gargantilla “Hojas” en hilo metalizado.", "Broche con técnica mixta."] }
 ];
 
-const root = document.getElementById("mesas");
+const slug = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+const toc = document.getElementById("toc");
+const main = document.getElementById("mesas");
+
 for (const m of MESAS) {
-  const photos = m.photos.map((p, i) =>
-    `<div class="foto"><img loading="lazy" src="img/20261105_${p}.jpg" alt="${m.name}, foto ${i + 1}"></div>`).join("");
+  const id = slug(m.name);
+  toc.insertAdjacentHTML("beforeend", `<li class="m-${id}"><a href="#${id}"><span></span>${m.name}</a></li>`);
+  const shots = m.photos.map((p, i) =>
+    `<button type="button" data-src="${IMG}${p}.jpg"><img loading="lazy" src="${IMG}${p}.jpg" alt="${m.name}, foto ${i + 1}" width="800" height="1000"></button>`).join("");
+  const dots = m.photos.map((_, i) => `<i class="${i ? "" : "on"}"></i>`).join("");
   const items = m.items.map(t => `<li>${t}</li>`).join("");
-  root.insertAdjacentHTML("beforeend", `<section><h2>${m.name}</h2><ol>${items}</ol>${photos}</section>`);
+  main.insertAdjacentHTML("beforeend", `
+    <section class="mesa m-${id}" id="${id}">
+      <div class="head reveal">
+        <p class="num">Mesa ${m.n}</p>
+        <h3>${m.name}</h3>
+        <p class="quote">${m.quote}</p>
+      </div>
+      <div class="strip">${shots}</div>
+      <div class="dots">${dots}</div>
+      <ol class="pieces reveal">${items}</ol>
+    </section>`);
+}
+
+document.querySelectorAll(".mesa").forEach(sec => {
+  const strip = sec.querySelector(".strip");
+  const dots = sec.querySelectorAll(".dots i");
+  strip.addEventListener("scroll", () => {
+    const w = strip.firstElementChild.getBoundingClientRect().width + 12;
+    const i = Math.round(strip.scrollLeft / w);
+    dots.forEach((d, k) => d.classList.toggle("on", k === i));
+  }, { passive: true });
+});
+
+const viewer = document.getElementById("viewer");
+const viewerImg = document.getElementById("viewer-img");
+main.addEventListener("click", e => {
+  const b = e.target.closest("button[data-src]");
+  if (!b) return;
+  viewerImg.src = b.dataset.src;
+  viewerImg.alt = b.querySelector("img").alt;
+  viewer.showModal();
+});
+viewer.addEventListener("click", () => viewer.close());
+
+if ("IntersectionObserver" in window) {
+  document.documentElement.classList.add("anim");
+  let observed = false;
+  setTimeout(() => { if (!observed) document.querySelectorAll(".reveal").forEach(el => el.classList.add("in")); }, 2500);
+  const reveal = new IntersectionObserver(es => es.forEach(e => {
+    observed = true;
+    if (e.isIntersecting) { e.target.classList.add("in"); reveal.unobserve(e.target); }
+  }), { rootMargin: "0px 0px -10% 0px" });
+  document.querySelectorAll(".reveal").forEach(el => reveal.observe(el));
+
+  const links = [...toc.querySelectorAll("a")];
+  const spy = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    links.forEach(a => {
+      const on = a.hash === "#" + e.target.id;
+      a.classList.toggle("on", on);
+      if (on) a.scrollIntoView({ inline: "center", block: "nearest" });
+    });
+  }), { rootMargin: "-45% 0px -50% 0px" });
+  document.querySelectorAll(".mesa").forEach(s => spy.observe(s));
+} else {
+  document.querySelectorAll(".reveal").forEach(el => el.classList.add("in"));
 }
 </script>
 </body>
