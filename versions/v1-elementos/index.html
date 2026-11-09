@@ -130,11 +130,8 @@ dialog::backdrop { background: rgba(14,10,6,.94); }
 dialog img { max-width: 96vw; max-height: 88vh; border-radius: 6px; }
 .close { position: fixed; top: 12px; right: 14px; background: none; border: 0; color: #fff; font-size: 2.4rem; line-height: 1; cursor: pointer; }
 
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
-.reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal { opacity: 1; transform: none; transition: none; }
 }
 </style>
 </head>
@@ -166,7 +163,7 @@ dialog img { max-width: 96vw; max-height: 88vh; border-radius: 6px; }
   </div>
 </section>
 
-<section class="intro reveal">
+<section class="intro">
   <p class="ornament">✦ ✦ ✦</p>
   <p class="verse">
     <span>Desde la noche de los tiempos, ellas protegen el secreto…</span>
@@ -228,19 +225,19 @@ for (const m of MESAS) {
   const id = slug(m.name);
   toc.insertAdjacentHTML("beforeend", `<li class="m-${id}"><a href="#${id}"><span></span>${m.name}</a></li>`);
   const shots = m.photos.map((p, i) =>
-    `<button type="button" data-src="${IMG}${p}.jpg"><img loading="lazy" src="${IMG}${p}.jpg" alt="${m.name}, foto ${i + 1}" width="800" height="1000"></button>`).join("");
+    `<button type="button" data-src="${IMG}${p}.jpg"><img src="${IMG}${p}.jpg" alt="${m.name}, foto ${i + 1}" width="800" height="1000"></button>`).join("");
   const dots = m.photos.map((_, i) => `<i class="${i ? "" : "on"}"></i>`).join("");
   const items = m.items.map(t => `<li>${t}</li>`).join("");
   main.insertAdjacentHTML("beforeend", `
     <section class="mesa m-${id}" id="${id}">
-      <div class="head reveal">
+      <div class="head">
         <p class="num">Mesa ${m.n}</p>
         <h3>${m.name}</h3>
         <p class="quote">${m.quote}</p>
       </div>
       <div class="strip">${shots}</div>
       <div class="dots">${dots}</div>
-      <ol class="pieces reveal">${items}</ol>
+      <ol class="pieces">${items}</ol>
     </section>`);
 }
 
@@ -266,11 +263,6 @@ main.addEventListener("click", e => {
 viewer.addEventListener("click", () => viewer.close());
 
 if ("IntersectionObserver" in window) {
-  const reveal = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add("in"); reveal.unobserve(e.target); }
-  }), { rootMargin: "0px 0px -10% 0px" });
-  document.querySelectorAll(".reveal").forEach(el => reveal.observe(el));
-
   const links = [...toc.querySelectorAll("a")];
   const spy = new IntersectionObserver(es => es.forEach(e => {
     if (!e.isIntersecting) return;
@@ -281,8 +273,6 @@ if ("IntersectionObserver" in window) {
     });
   }), { rootMargin: "-45% 0px -50% 0px" });
   document.querySelectorAll(".mesa").forEach(s => spy.observe(s));
-} else {
-  document.querySelectorAll(".reveal").forEach(el => el.classList.add("in"));
 }
 </script>
 </body>
