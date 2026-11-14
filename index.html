@@ -97,7 +97,6 @@ a { color: inherit; }
 
 .mesa { padding: 56px 0 48px; background: var(--bg, transparent); color: var(--fg, var(--ink)); }
 .mesa .head { max-width: 620px; margin: 0 auto; padding: 0 20px; text-align: center; }
-.mesa .num { font-size: .85rem; letter-spacing: .3em; text-transform: uppercase; color: var(--accent); margin: 0; }
 .mesa h3 { font-size: clamp(2.4rem, 11vw, 3.4rem); font-weight: 500; letter-spacing: .06em; margin: 0; line-height: 1.1; }
 .mesa .quote { font-family: "Dancing Script", cursive; font-size: 1.4rem; color: var(--accent); margin: 6px 0 24px; }
 .strip { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 20px 12px; scrollbar-width: none; }
@@ -231,7 +230,6 @@ for (const m of MESAS) {
   main.insertAdjacentHTML("beforeend", `
     <section class="mesa m-${id}" id="${id}">
       <div class="head reveal">
-        <p class="num">Mesa ${m.n}</p>
         <h3>${m.name}</h3>
         <p class="quote">${m.quote}</p>
       </div>
